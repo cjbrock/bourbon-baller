@@ -1,6 +1,6 @@
 # Bourbon Baller (Bourbon Review Site)
 
-## User
+## User - done
 
 - Username
 - Email
@@ -9,13 +9,13 @@
  - has_many :reviews
  - has_many :bourbons through: :reviews
 
-## Distillery
+## Distillery - done
 
 - Name
 - In_store :boolean
 - has_many :bourbons
 
-## Bourbon
+## Bourbon - done
 
 - Name
 - Type
