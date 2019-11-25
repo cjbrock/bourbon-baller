@@ -10,7 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_25_154123) do
+ActiveRecord::Schema.define(version: 2019_11_25_155411) do
+
+  create_table "bourbons", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.string "description"
+    t.integer "distillery_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["distillery_id"], name: "index_bourbons_on_distillery_id"
+  end
+
+  create_table "distilleries", force: :cascade do |t|
+    t.string "name"
+    t.boolean "in_store"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "stars"
+    t.string "title"
+    t.string "content"
+    t.integer "bourbon_id", null: false
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bourbon_id"], name: "index_reviews_on_bourbon_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +55,7 @@ ActiveRecord::Schema.define(version: 2019_11_25_154123) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bourbons", "distilleries"
+  add_foreign_key "reviews", "bourbons"
+  add_foreign_key "reviews", "users"
 end
