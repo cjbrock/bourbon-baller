@@ -1,1 +1,23 @@
 <%= render partial: 'errors', locals:{object: @bourbon}%>
+<% form_for(@bourbon) do |f| %>
+<div>
+    <%= f.label :name %>
+    <%= f.text_field :name%>
+</div>
+
+<div>
+    <%= f.label :type %>
+    <%= f.text_field :type%>
+</div>
+
+<div>
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+</div>
+
+<p>Please select a distillery:</p>
+<div>
+    <%= f.collection_select :distillery_id, Distillery.all, :id, :name, include_blank: "Pick one" %>
+</div>
+
+<% end %>
