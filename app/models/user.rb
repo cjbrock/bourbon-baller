@@ -6,4 +6,9 @@ class User < ApplicationRecord
 
   has_many :reviews
   has_many :bourbons, through: :reviews
+
+  validates :email, uniqueness: true
+  validates :email, presence: true
+
+
 end

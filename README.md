@@ -9,13 +9,13 @@
  - has_many :reviews
  - has_many :bourbons through: :reviews
 
-## Distillery - done
+## Distillery
 
 - Name
 - In_store :boolean
 - has_many :bourbons
 
-## Bourbon - done
+## Bourbon
 
 - Name
 - Type
