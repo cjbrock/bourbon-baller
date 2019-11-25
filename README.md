@@ -1,4 +1,4 @@
-# This name has changed here too Baller (Bourbon Review Site)
+# Bourbon Baller (Bourbon Review Site)
 
 ## User - done
 
