@@ -1,6 +1,6 @@
 # Bourbon Baller (Bourbon Review Site)
 
-## User - done
+## User
 
 - Username
 - Email

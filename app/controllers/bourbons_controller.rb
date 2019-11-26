@@ -6,18 +6,22 @@ class BourbonsController < ApplicationController
 
     def new
         @bourbon = Bourbon.new
+        @bourbon.build_distillery
     end
 
     def create
         @bourbon = Bourbon.new(bourbon_params)
         if @bourbon.save
-            # do something
+            redirect_to bourbons_path
         else
-            # do something else
+            @bourbon.build_distillery
+            render :new
         end
     end
 
     private
 
-    params.require(:bourbon).permit(:name, :type, :description, :distillery_id)
+    def bourbon_params
+        params.require(:bourbon).permit(:name, :kind, :description, :distillery_id, distillery_attributes: [:name])
+    end
 end
