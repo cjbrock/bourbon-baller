@@ -1,0 +1,10 @@
+<h1>welcome to your ratings page</h1>
+
+<% @bourbons.each do |b| %>
+    <h2><%= b.name %> - <%= b.kind %> </h2>
+    <% b.reviews.each do |r| %>
+        <h4><%= r.title %> - <%= r.stars %> </h4>
+        <p><%= r.content%> </p>
+    <% end %>
+    <%= link_to "Review this bourbon", new_bourbon_review_path(b)%>
+<% end %>

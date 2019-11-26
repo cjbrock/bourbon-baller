@@ -19,6 +19,10 @@ class BourbonsController < ApplicationController
         end
     end
 
+    def ratings
+        @bourbons = Bourbon.grouped_ratings
+    end
+
     private
 
     def bourbon_params
